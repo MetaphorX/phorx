@@ -10,7 +10,7 @@ const Post = ({
     <article className="flex flex-col shadow my-4">
       <span className="hover:opacity-75">
         <img
-          className="rounded-t-lg h-80"
+          className="cover rounded-t-lg h-80"
           src={urlFor(mainImage && mainImage)}
         />
       </span>

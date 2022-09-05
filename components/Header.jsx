@@ -1,12 +1,11 @@
 import React from "react";
 import { client } from "../lib/client";
 import Link from "next/link";
-
+import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
+import {BsFilter} from 'react-icons/bs'
 const categories =[
   {name:'Technology', slug:'technology'},
-  {name:'Automotive', slug:'automotive'},
   {name:'Politics', slug:'politics'},
-  {name:'Culture', slug:'culture'},
   {name:'Sports', slug:'sports'},
 ]
 
@@ -14,37 +13,25 @@ const Header = () => {
   return (
     <>
 
-      <header className="w-full container mx-auto">
-        <div className="flex flex-col items-center py-6">
-          <Link href="/">
-            <p className="font-bold text-gray-800 uppercase cursor-pointer hover:text-gray-500 text-5xl">
-            Phorx
-            </p>
-          </Link>
-          <p className="text-lg text-gray-600">Lorem Ipsum Dolor Sit Amet</p>
-        </div>
-      </header>
-
-      <nav className="w-full py-4 border-t border-b bg-gray-100">
-        <div className="block sm:hidden">
-          <a href="#"
-            className="block md:hidden text-base font-bold uppercase text-center justify-center items-center"
-          >
-            Category <i className="fas ml-2"></i>
-          </a>
-        </div>
-        <div className="w-full flex-grow sm:flex sm:items-center sm:w-auto">
-          <div className="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-            {categories?.map((category) => (
+<header className="text-gray-600 body-font shadow-md">
+  <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <nav className="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
+    {categories?.map((category) => (
               <Link key={category.slug} href={`/category/${category.slug}`}>
-              <span className="hover:bg-gray-400 rounded py-2 px-4 mx-2 cursor-pointer">
+              <span className="hover:bg-gray-400 hover:text-white font-semibold rounded py-2 mx-2 cursor-pointer">
                 {category.name}
               </span>
               </Link>
             ))}
-          </div>
-        </div>
-      </nav>
+
+    </nav>
+    <Link href="/">
+      <div className="flex order-first lg:order-first lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
+      <span className="ml-3 text-xl font-extrabold">PHORX</span>
+      </div>
+    </Link>
+  </div>
+</header>
     </>
   );
 };
